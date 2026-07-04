@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus Studio &mdash; Gallery</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Nexus<span>.</span></a>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="gallery.html" class="active">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <h1>Our Work</h1>
+  <p>A curated selection of projects we've brought to life.</p>
+</div>
+
+<section class="section section-alt">
+  <div class="container">
+    <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-bottom:2.5rem;">
+      <button onclick="filter(this,'all')" class="filter-btn active-filter">All</button>
+      <button onclick="filter(this,'web')" class="filter-btn">Web</button>
+      <button onclick="filter(this,'mobile')" class="filter-btn">Mobile</button>
+      <button onclick="filter(this,'brand')" class="filter-btn">Branding</button>
+    </div>
+
+    <div class="gallery-grid" id="gallery">
+
+      <div class="gallery-item" data-cat="web">
+        <div class="placeholder" style="background:linear-gradient(135deg,#667eea,#764ba2);">&#127759;</div>
+        <div class="overlay"><span>Global Reach &mdash; Web Platform</span></div>
+      </div>
+
+      <div class="gallery-item" data-cat="brand">
+        <div class="placeholder" style="background:linear-gradient(135deg,#f093fb,#f5576c);">&#127381;</div>
+        <div class="overlay"><span>Bloom Co &mdash; Brand Identity</span></div>
+      </div>
+
+      <div class="gallery-item" data-cat="mobile">
+        <div class="placeholder" style="background:linear-gradient(135deg,#4facfe,#00f2fe);">&#128241;</div>
+        <div class="overlay"><span>FlowApp &mdash; iOS &amp; Android</span></div>
+      </div>
+
+      <div class="gallery-item" data-cat="web">
+        <div class="placeholder" style="background:linear-gradient(135deg,#43e97b,#38f9d7);">&#128187;</div>
+        <div class="overlay"><span>Verdant &mdash; SaaS Dashboard</span></div>
+      </div>
+
+      <div class="gallery-item" data-cat="brand">
+        <div class="placeholder" style="background:linear-gradient(135deg,#fa709a,#fee140);">&#127775;</div>
+        <div class="overlay"><span>Stellarise &mdash; Visual System</span></div>
+      </div>
+
+      <div class="gallery-item" data-cat="web">
+        <div class="placeholder" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb);">&#127968;</div>
+        <div class="overlay"><span>Nook &mdash; Real Estate Portal</span></div>
+      </div>
+
+      <div class="gallery-item" data-cat="mobile">
+        <div class="placeholder" style="background:linear-gradient(135deg,#fd7743,#e94560);">&#127939;</div>
+        <div class="overlay"><span>Pace &mdash; Fitness Tracker</span></div>
+      </div>
+
+      <div class="gallery-item" data-cat="web">
+        <div class="placeholder" style="background:linear-gradient(135deg,#0f3460,#533483);">&#128202;</div>
+        <div class="overlay"><span>Axiom &mdash; Analytics Suite</span></div>
+      </div>
+
+      <div class="gallery-item" data-cat="brand">
+        <div class="placeholder" style="background:linear-gradient(135deg,#11998e,#38ef7d);">&#9749;</div>
+        <div class="overlay"><span>Folio &mdash; Coffee Brand</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" style="text-align:center;">
+  <div class="container">
+    <div class="section-label">Like What You See?</div>
+    <h2 class="section-title">Let&rsquo;s Create Something Together</h2>
+    <p class="section-sub" style="margin:0 auto 2rem;">Every great project starts with a conversation. Tell us about yours.</p>
+    <a href="contact.html" class="btn">Start a Project</a>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 Nexus Studio &mdash; <a href="contact.html">hello@nexus.studio</a>
+</footer>
+
+<style>
+.filter-btn {
+  padding: 0.45rem 1.1rem;
+  border-radius: 50px;
+  border: 1.5px solid #dde1e7;
+  background: white;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #6c757d;
+  transition: all 0.18s;
+}
+.filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+.filter-btn.active-filter { background: var(--accent); border-color: var(--accent); color: white; }
+.gallery-item { transition: opacity 0.3s, transform 0.3s; }
+.gallery-item.hidden { opacity: 0; pointer-events: none; transform: scale(0.95); display:none; }
+</style>
+
+<script>
+function filter(btn, cat) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active-filter'));
+  btn.classList.add('active-filter');
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    if (cat === 'all' || item.dataset.cat === cat) {
+      item.classList.remove('hidden');
+    } else {
+      item.classList.add('hidden');
+    }
+  });
+}
+</script>
+
+</body>
+</html>
